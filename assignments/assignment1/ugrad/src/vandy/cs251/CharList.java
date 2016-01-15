@@ -13,16 +13,18 @@ public class CharList
      * The head of the list.
      */
     // TODO - you fill in here
+    Node myHead;
 
     /**
      * The current size of the list.
      */
     // TODO - you fill in here
-
+    int mySize;
     /**
      * Default value for elements in the list.
      */
     // TODO - you fill in here
+    char myValue;
 
     /**
      * Constructs an list of the given size.
@@ -31,6 +33,16 @@ public class CharList
      */
     public CharList(int size) {
         // TODO - you fill in here.  Initialize the List
+        if (size < 0) {
+            throw new IndexOutOfBoundsException("Index out of Bounds.");
+        }
+        mySize = size;
+        Node tmp = null;
+        for (int i = 0; i < size; i++) {
+            tmp = new Node();
+            tmp.next = myHead;
+            myHead = tmp;
+        }
     }
 
     /**
@@ -154,12 +166,12 @@ public class CharList
          * Value stored in the Node.
          */
 	// TODO - you fill in here
-
+        char myChar;
         /**
          * Reference to the next node in the list.
          */
 	// TODO - you fill in here
-
+        Node next;
         /**
          * Default constructor (no op).
          */
@@ -171,6 +183,8 @@ public class CharList
          */
         Node(Node prev) {
             // TODO - you fill in here
+            next = prev.next;
+            prev.next = this;
         }
 
         /**
@@ -178,6 +192,9 @@ public class CharList
          */
         Node(char value, Node prev) {
             // TODO - you fill in here
+            myChar = value;
+            next = prev.next;
+            prev.next = this;
         }
 
         /**
@@ -188,6 +205,14 @@ public class CharList
             // Leaving the list fully linked could *potentially* cause
             // a pathological performance issue for the garbage
             // collector.
+            Node tmp = this;
+            Node next = null;
+            while (tmp != null) {
+                next = tmp.next;
+                tmp.next = null;
+                tmp = next;
+            }
+
         }
     }
 }
