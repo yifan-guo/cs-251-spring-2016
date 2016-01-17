@@ -30,19 +30,11 @@ public class CharList
      * Constructs an list of the given size.
      *
      * @param size Non-negative integer size of the desired list.
+     * @throw IndexOutOfBoundsException If size < 0.
      */
     public CharList(int size) {
         // TODO - you fill in here.  Initialize the List
-        if (size < 0) {
-            throw new IndexOutOfBoundsException("Index out of Bounds.");
-        }
-        mySize = size;
-        Node tmp = null;
-        for (int i = 0; i < size; i++) {
-            tmp = new Node();
-            tmp.next = myHead;
-            myHead = tmp;
-        }
+        this(size, '\0');
     }
 
     /**
@@ -55,6 +47,14 @@ public class CharList
      */
     public CharList(int size, char defaultValue) {
         // TODO - you fill in here
+        mySize = size;
+        Node tmp = null;
+        Node prev = null;
+        for (int i = 0; i < size; i++) {
+            tmp = new Node(defaultValue, prev);
+            tmp.next = myHead;
+            myHead = tmp;
+        }
     }
 
     /**
@@ -74,7 +74,7 @@ public class CharList
     public Object clone() {
         // TODO - you fill in here (replace return null with right
         // implementation).
-	return null;
+    	return (Object) new CharList(this);
     }
 
     /**
@@ -183,6 +183,7 @@ public class CharList
          */
         Node(Node prev) {
             // TODO - you fill in here
+            myChar = prev.myChar;
             next = prev.next;
             prev.next = this;
         }
