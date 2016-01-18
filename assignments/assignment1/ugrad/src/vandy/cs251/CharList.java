@@ -47,11 +47,15 @@ public class CharList
      */
     public CharList(int size, char defaultValue) {
         // TODO - you fill in here
+        if (size < 0) {
+            throw new IndexOutOfBoundsException("Index out of Bounds!");
+        }
         mySize = size;
-        Node tmp = null;
-        Node prev = null;
+        myValue = defaultValue;
+        Node tmp;
         for (int i = 0; i < size; i++) {
-            tmp = new Node(defaultValue, prev);
+            tmp = new Node();
+            tmp.myChar = defaultValue;
             tmp.next = myHead;
             myHead = tmp;
         }
@@ -64,6 +68,21 @@ public class CharList
      */
     public CharList(CharList s) {
         // TODO - you fill in here
+        mySize = s.mySize;
+        myValue = s.myValue;
+        //copy head Node
+        if (s.myHead != null){
+            myHead = new Node();
+            myHead.myChar = s.myHead.myChar;
+        }
+        //copy rest of list (if exists)
+        Node tracker = s.myHead;
+        Node prev = myHead;
+        while (tracker.next != null) {
+            tracker = tracker.next;
+            Node tmp = new Node(tracker.myChar, prev);
+            prev = prev.next;
+        }
     }
 
     /**
@@ -83,7 +102,7 @@ public class CharList
     public int size() {
         // TODO - you fill in here (replace return 0 with right
         // implementation).
-    	return 0;
+    	return mySize;
     }
 
     /**
@@ -101,6 +120,9 @@ public class CharList
      */
     public void resize(int size) {
         // TODO - you fill in here
+        if (size > mySize) {
+            mySize = size;
+        }
     }
 
     /**
@@ -112,7 +134,7 @@ public class CharList
     public char get(int index) {
         // TODO - you fill in here (replace return '\0' with right
         // implementation).
-        return '\0';
+        return seek(index).myChar;
     }
 
     /**
@@ -124,6 +146,12 @@ public class CharList
      */
     public void set(int index, char value) {
         // TODO - you fill in here
+        rangeCheck(index);
+        Node tmp = myHead;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        tmp.myChar = value;
     }
 
     /**
@@ -131,7 +159,12 @@ public class CharList
      */
     private Node seek(int index) {
         // TODO - you fill in here
-        return null;
+        rangeCheck(index);
+        Node tmp = myHead;
+        for (int i = 0; i < index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp;
     }
 
     /**
@@ -148,7 +181,29 @@ public class CharList
     public int compareTo(CharList s) {
         // TODO - you fill in here (replace return 0 with right
         // implementation).
-	    return 0;
+	    Node tmp = myHead;
+        Node comparator = s.myHead;
+        while (tmp != null && comparator != null) {
+            if (tmp.myChar == comparator.myChar) {
+                tmp = tmp.next;
+                comparator = comparator.next;
+            }
+            else if (tmp.myChar > comparator.myChar) {
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        }
+        if (tmp == null && comparator == null) {
+            return 0;
+        }
+        else if (tmp == null) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
     }
 
     /**
@@ -156,6 +211,9 @@ public class CharList
      */
     private void rangeCheck(int index) {
         // TODO - you fill in here
+        if (index < 0 || index >= mySize) {
+            throw new IndexOutOfBoundsException("Index out of bounds!");
+        }
     }
 
     /**
