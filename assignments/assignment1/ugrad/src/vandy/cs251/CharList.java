@@ -146,12 +146,7 @@ public class CharList
      */
     public void set(int index, char value) {
         // TODO - you fill in here
-        rangeCheck(index);
-        Node tmp = myHead;
-        for (int i = 0; i < index; i++) {
-            tmp = tmp.next;
-        }
-        tmp.myChar = value;
+        seek(index).myChar = value;
     }
 
     /**
