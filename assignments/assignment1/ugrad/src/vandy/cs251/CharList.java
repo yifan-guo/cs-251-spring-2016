@@ -71,13 +71,13 @@ public class CharList
         mySize = s.mySize;
         myValue = s.myValue;
         //copy head Node
-        if (s.myHead != null) {
+        if (s.mySize != 0) {
             myHead = new Node();
             myHead.myChar = s.myHead.myChar;
             //copy rest of list (if exists)
             Node tracker = s.myHead;
             Node prev = myHead;
-            while (tracker.next != null) {
+            for (int i = 1; i < s.mySize; i++) {
                 tracker = tracker.next;
                 Node tmp = new Node(tracker.myChar, prev);
                 prev = prev.next;
@@ -93,7 +93,7 @@ public class CharList
     public Object clone() {
         // TODO - you fill in here (replace return null with right
         // implementation).
-    	return (Object) new CharList(this);
+    	return new CharList(this);
     }
 
     /**
@@ -128,12 +128,15 @@ public class CharList
             }
             //initialize rest of list w/ default value
             Node prev = myHead;
-            for (int i = 1; i < size; i++) {
+            for (int i = 1; i < mySize; i++) {
+                prev = prev.next;
+            }
+            for (int i = mySize; i < size; i++) {
                 Node tmp = new Node(myValue, prev);
                 prev = prev.next;
             }
-            mySize = size;
         }
+        mySize = size;
     }
 
     /**
@@ -189,10 +192,12 @@ public class CharList
         // implementation).
 	    Node tmp = myHead;
         Node comparator = s.myHead;
-        while (tmp != null && comparator != null) {
+        int count = 0;
+        while (count < mySize && count < s.mySize) {
             if (tmp.myChar == comparator.myChar) {
                 tmp = tmp.next;
                 comparator = comparator.next;
+                count++;
             }
             else if (tmp.myChar > comparator.myChar) {
                 return 1;
@@ -201,10 +206,10 @@ public class CharList
                 return -1;
             }
         }
-        if (tmp == null && comparator == null) {
+        if (mySize == s.mySize) {
             return 0;
         }
-        else if (tmp == null) {
+        else if (count >= mySize) {
             return -1;
         }
         else {
