@@ -27,7 +27,7 @@ public class CharList
     char myValue;
 
     /**
-     * Constructs an list of the given size.
+     * Constructs an list of the given size.    (Good)
      *
      * @param size Non-negative integer size of the desired list.
      * @throw IndexOutOfBoundsException If size < 0.
@@ -38,7 +38,7 @@ public class CharList
     }
 
     /**
-     * Constructs an list of the given size, filled with the provided
+     * Constructs an list of the given size, filled with the provided   (Good)
      * default value.
      *
      * @param size Nonnegative integer size of the desired list.
@@ -48,7 +48,7 @@ public class CharList
     public CharList(int size, char defaultValue) {
         // TODO - you fill in here
         if (size < 0) {
-            throw new IndexOutOfBoundsException("Index out of Bounds!");
+            throw new IndexOutOfBoundsException("Size cannot be negative!");
         }
         mySize = size;
         myValue = defaultValue;
@@ -62,7 +62,7 @@ public class CharList
     }
 
     /**
-     * Copy constructor; creates a deep copy of the provided CharList.
+     * Copy constructor; creates a deep copy of the provided CharList.  (Good)
      *
      * @param s The CharList to be copied.
      */
@@ -71,17 +71,17 @@ public class CharList
         mySize = s.mySize;
         myValue = s.myValue;
         //copy head Node
-        if (s.myHead != null){
+        if (s.myHead != null) {
             myHead = new Node();
             myHead.myChar = s.myHead.myChar;
-        }
-        //copy rest of list (if exists)
-        Node tracker = s.myHead;
-        Node prev = myHead;
-        while (tracker.next != null) {
-            tracker = tracker.next;
-            Node tmp = new Node(tracker.myChar, prev);
-            prev = prev.next;
+            //copy rest of list (if exists)
+            Node tracker = s.myHead;
+            Node prev = myHead;
+            while (tracker.next != null) {
+                tracker = tracker.next;
+                Node tmp = new Node(tracker.myChar, prev);
+                prev = prev.next;
+            }
         }
     }
 
@@ -97,7 +97,7 @@ public class CharList
     }
 
     /**
-     * @return The current size of the list.
+     * @return The current size of the list.    (Good)
      */
     public int size() {
         // TODO - you fill in here (replace return 0 with right
@@ -106,7 +106,7 @@ public class CharList
     }
 
     /**
-     * Resizes the list to the requested size.
+     * Resizes the list to the requested size.      (Good)
      *
      * Changes the capacity of this list to hold the requested number of elements.
      * Note the following optimizations/implementation details:
@@ -121,12 +121,23 @@ public class CharList
     public void resize(int size) {
         // TODO - you fill in here
         if (size > mySize) {
+            //initialize myHead
+            if (mySize == 0) {
+                myHead = new Node();
+                myHead.myChar = myValue;
+            }
+            //initialize rest of list w/ default value
+            Node prev = myHead;
+            for (int i = 1; i < size; i++) {
+                Node tmp = new Node(myValue, prev);
+                prev = prev.next;
+            }
             mySize = size;
         }
     }
 
     /**
-     * @return the element at the requested index.
+     * @return the element at the requested index.  (Good)
      * @param index Nonnegative index of the requested element.
      * @throws IndexOutOfBoundsException If the requested index is outside the
      * current bounds of the list.
@@ -138,7 +149,7 @@ public class CharList
     }
 
     /**
-     * Sets the element at the requested index with a provided value.
+     * Sets the element at the requested index with a provided value.   (Good)
      * @param index Nonnegative index of the requested element.
      * @param value A provided value.
      * @throws IndexOutOfBoundsException If the requested index is outside the
@@ -150,7 +161,7 @@ public class CharList
     }
 
     /**
-     * Locate and return the @a Node at the @a index location.
+     * Locate and return the @a Node at the @a index location.  (Good)
      */
     private Node seek(int index) {
         // TODO - you fill in here
