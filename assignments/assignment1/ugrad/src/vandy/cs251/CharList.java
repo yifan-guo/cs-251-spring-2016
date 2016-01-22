@@ -13,18 +13,18 @@ public class CharList
      * The head of the list.
      */
     // TODO - you fill in here
-    Node myHead;
+    private Node myHead;
 
     /**
      * The current size of the list.
      */
     // TODO - you fill in here
-    int mySize;
+    private int mySize;
     /**
      * Default value for elements in the list.
      */
     // TODO - you fill in here
-    char myValue;
+    private char myValue;
 
     /**
      * Constructs an list of the given size.    (Good)
@@ -79,7 +79,7 @@ public class CharList
             Node prev = myHead;
             for (int i = 1; i < s.mySize; i++) {
                 tracker = tracker.next;
-                Node tmp = new Node(tracker.myChar, prev);
+                new Node(tracker.myChar, prev);
                 prev = prev.next;
             }
         }
@@ -132,7 +132,7 @@ public class CharList
                 prev = prev.next;
             }
             for (int i = mySize; i < size; i++) {
-                Node tmp = new Node(myValue, prev);
+                new Node(myValue, prev);
                 prev = prev.next;
             }
         }
@@ -190,31 +190,13 @@ public class CharList
     public int compareTo(CharList s) {
         // TODO - you fill in here (replace return 0 with right
         // implementation).
-	    Node tmp = myHead;
-        Node comparator = s.myHead;
-        int count = 0;
-        while (count < mySize && count < s.mySize) {
-            if (tmp.myChar == comparator.myChar) {
-                tmp = tmp.next;
-                comparator = comparator.next;
-                count++;
-            }
-            else if (tmp.myChar > comparator.myChar) {
-                return 1;
-            }
-            else {
-                return -1;
+	    for (int i = 0; i < Math.min(mySize, s.mySize); i++) {
+            int value = get(i) - s.get(i);
+            if (value != 0) {
+                return value;
             }
         }
-        if (mySize == s.mySize) {
-            return 0;
-        }
-        else if (count >= mySize) {
-            return -1;
-        }
-        else {
-            return 1;
-        }
+        return mySize - s.mySize;
     }
 
     /**
@@ -235,12 +217,12 @@ public class CharList
          * Value stored in the Node.
          */
 	// TODO - you fill in here
-        char myChar;
+        private char myChar;
         /**
          * Reference to the next node in the list.
          */
 	// TODO - you fill in here
-        Node next;
+        private Node next;
         /**
          * Default constructor (no op).
          */
@@ -252,9 +234,8 @@ public class CharList
          */
         Node(Node prev) {
             // TODO - you fill in here
-            myChar = prev.myChar;
-            next = prev.next;
-            prev.next = this;
+            //myChar is null character by default
+            this('\0', prev);
         }
 
         /**
