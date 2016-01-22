@@ -243,9 +243,11 @@ public class CharList
          */
         Node(char value, Node prev) {
             // TODO - you fill in here
-            myChar = value;
-            next = prev.next;
-            prev.next = this;
+            if (prev!= null) {
+                myChar = value;
+                next = prev.next;
+                prev.next = this;
+            }
         }
 
         /**
