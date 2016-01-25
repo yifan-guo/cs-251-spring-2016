@@ -51,6 +51,7 @@ public class CharList
         mySize = size;
         myValue = defaultValue;
         for (int i = 0; i < size; i++) {
+            // @@ Use the Node(Node prev) constructor.
             Node tmp = new Node();
             tmp.myChar = defaultValue;
             tmp.next = myHead;
@@ -200,6 +201,8 @@ public class CharList
         // TODO - you fill in here (replace return 0 with right
         // implementation).
         for (int i = 0; i < Math.min(mySize, s.mySize); i++) {
+          // @@ This implementation is inefficient since you need
+          // iterating through the list via seek().
             int value = get(i) - s.get(i);
             if (value != 0) {
                 return value;
