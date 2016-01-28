@@ -52,10 +52,10 @@ public class CharList
         myValue = defaultValue;
         for (int i = 0; i < size; i++) {
             // @@ Use the Node(Node prev) constructor.
-            Node tmp = new Node();
-            tmp.myChar = defaultValue;
-            tmp.next = myHead;
-            myHead = tmp;
+            Node tmp = new Node(defaultValue, myHead);
+            if (myHead == null) {
+                myHead = tmp;
+            }
         }
     }
 
@@ -200,10 +200,12 @@ public class CharList
     public int compareTo(CharList s) {
         // TODO - you fill in here (replace return 0 with right
         // implementation).
-        for (int i = 0; i < Math.min(mySize, s.mySize); i++) {
+        Node cur = myHead;
+        Node other = s.myHead;
+        for (int i = 0; i < Math.min(mySize, s.mySize); i++, cur = cur.next, other= other.next) {
           // @@ This implementation is inefficient since you need
           // iterating through the list via seek().
-            int value = get(i) - s.get(i);
+            int value = cur.myChar - other.myChar;
             if (value != 0) {
                 return value;
             }
@@ -266,8 +268,8 @@ public class CharList
          */
         Node(char value, Node prev) {
             // TODO - you fill in here
+            myChar = value;
             if (prev!= null) {
-                myChar = value;
                 next = prev.next;
                 prev.next = this;
             }
