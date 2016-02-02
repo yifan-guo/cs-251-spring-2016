@@ -37,7 +37,7 @@ public class ListArrayCharacterTest {
         ListArray<Character> tmp = new ListArray<Character>(10, 'b');
 
         for(int i = 0; i < 10; ++i) {
-          assertEquals('b', (char)tmp.get(i));
+            assertEquals('b', (char)tmp.get(i));
         }
     }
 
@@ -58,7 +58,6 @@ public class ListArrayCharacterTest {
         assertEquals(tmp.size(), tmp_c.size());
         assertEquals(0, tmp.compareTo(tmp_c));
         assertEquals(0, tmp_c.compareTo(tmp));
-        assertFalse(tmp.capacity() == tmp_c.capacity());
 
         tmp_c.resize(11);
 
@@ -70,7 +69,6 @@ public class ListArrayCharacterTest {
         assertEquals(tmp.size(), tmp_c.size());
         assertEquals(0, tmp.compareTo(tmp_c));
         assertEquals(0, tmp_c.compareTo(tmp));
-        assertEquals(2, tmp.capacity());
     }
 
     @Test
@@ -153,24 +151,19 @@ public class ListArrayCharacterTest {
 
         tmp = new ListArray<Character>(3, 'a');
         assertEquals(3, tmp.size());
-        assertEquals(3, tmp.capacity());
         tmp.set (1, 'b');
         tmp.set (2, 'c');
         tmp.resize (0);
         assertEquals(0, tmp.size());
-        assertEquals(3, tmp.capacity());
         tmp.resize (1);
         assertEquals(1, tmp.size());
-        assertEquals(3, tmp.capacity());
         assertEquals('a', (char) tmp.get(0));
         tmp.resize (2);
         assertEquals(2, tmp.size());
-        assertEquals(3, tmp.capacity());
         assertEquals('a', (char) tmp.get(0));
         assertEquals('a', (char) tmp.get(1));
         tmp.resize (3);
         assertEquals(3, tmp.size());
-        assertEquals(3, tmp.capacity());
         assertEquals('a', (char) tmp.get(0));
         assertEquals('a', (char) tmp.get(1));
         assertEquals('a', (char) tmp.get(2));
@@ -205,8 +198,8 @@ public class ListArrayCharacterTest {
         assertTrue (a.compareTo(b) < 0);
         assertTrue (b.compareTo(a) > 0);
 
-            @SuppressWarnings("unchecked")
-            ListArray<Character> bba = new ListArray<Character>(b);
+        @SuppressWarnings("unchecked")
+        ListArray<Character> bba = new ListArray<Character>(b);
 
 
         assertEquals (0, b.compareTo (bba));
@@ -292,172 +285,44 @@ public class ListArrayCharacterTest {
         it.next ();
     }
 
-  @Test
-  public void test_IteratorRemove () {
-    ListArray<Character> a = new ListArray<Character>(2, 'a');
-    a.set (1, 'b');
+    @Test
+    public void test_IteratorRemove () {
+        ListArray<Character> a = new ListArray<Character>(2, 'a');
+        a.set (1, 'b');
 
-    Iterator<Character> it = a.iterator ();
+        Iterator<Character> it = a.iterator ();
 
-    char c = it.next ();
-    assertEquals ('a', c);
+        char c = it.next ();
+        assertEquals ('a', c);
 
-    it.remove ();
+        it.remove ();
 
-    assertEquals (1, a.size ());
-    assertEquals ('b', (char) a.get (0));
+        assertEquals (1, a.size ());
+        assertEquals ('b', (char) a.get (0));
 
-    c = it.next ();
+        c = it.next ();
 
-    assertEquals ('b', c);
+        assertEquals ('b', c);
 
-    it.remove ();
+        it.remove ();
 
-    assertEquals (0, a.size ());
+        assertEquals (0, a.size ());
 
-    a.resize (2);
+        a.resize (2);
 
-    it = a.iterator ();
-    c = it.next ();
-    it.remove ();
+        it = a.iterator ();
+        c = it.next ();
+        it.remove ();
 
-    exception.expect(IllegalStateException.class);
-    it.remove ();
-  }
-
-  @Test
-  public void test_IteratorRemoveEmpty () {
-    ListArray<Character> a = new ListArray<Character>(2, 'a');
-    Iterator<Character> it = a.iterator ();
-    exception.expect(IllegalStateException.class);
-    it.remove ();
-  }
-
-  @Test
-  public void test_Spliterator () {
-    ListArray<Integer> a = new ListArray<Integer>(10);
-
-    for (int i = 0; i < 10; ++i) {
-      a.set (i, i);
+        exception.expect(IllegalStateException.class);
+        it.remove ();
     }
 
-    Spliterator<Integer> it = a.spliterator ();
-
-    assertEquals (Spliterator.IMMUTABLE |
-                  Spliterator.NONNULL |
-                  Spliterator.ORDERED |
-                  Spliterator.SIZED |
-                  Spliterator.SUBSIZED, it.characteristics ());
-    assertEquals (10, it.estimateSize ());
-
-    Consumer<Integer> act = new Consumer<Integer> () {
-        private int mSum = 0;
-
-        @Override
-        public void accept (Integer item) {
-          mSum += item;
-        }
-
-        public int sum () {
-          return mSum;
-        }
-
-        public void reset () {
-          mSum = 0;
-        }
-      };
-
-    int count = 0;
-
-    while (it.tryAdvance (act)) {
-      ++count;
+    @Test
+    public void test_IteratorRemoveEmpty () {
+        ListArray<Character> a = new ListArray<Character>(2, 'a');
+        Iterator<Character> it = a.iterator ();
+        exception.expect(IllegalStateException.class);
+        it.remove ();
     }
-
-    assertEquals (10, count);
-    try {
-      assertEquals (45, act.getClass().getMethod("sum").invoke (act));
-
-      act.getClass().getMethod("reset").invoke (act);
-    } catch (Exception e) { fail ("should never happen"); }
-
-    it = a.spliterator ();
-    assertEquals (10, it.estimateSize ());
-
-    Spliterator<Integer> split = it.trySplit (), split2 = split.trySplit ();
-
-    assertEquals (5, it.estimateSize ());
-    assertEquals (3, split.estimateSize ());
-    assertEquals (2, split2.estimateSize ());
-
-    count = 0;
-
-    while (it.tryAdvance (act)) {
-      ++count;
-    }
-
-    while (split.tryAdvance (act)) {
-      ++count;
-    }
-
-    while (split2.tryAdvance (act)) {
-      ++count;
-    }
-
-    assertEquals (10, count);
-    try {
-      assertEquals (45, act.getClass().getMethod("sum").invoke (act));
-      act.getClass().getMethod("reset").invoke (act);
-    } catch (Exception e) { fail ("should never happen"); }
-
-    it = a.spliterator ();
-    assertNotNull (split = it.trySplit ());
-    assertNotNull (it.trySplit ());
-    assertNotNull (it.trySplit ());
-    assertNotNull (it.trySplit ());
-    assertNull (it.trySplit ());
-    assertNotNull (split.trySplit ());
-    assertNotNull (split.trySplit ());
-    assertNotNull (split.trySplit ());
-    assertNull (split.trySplit ());
-
-    ArrayList<Spliterator<Integer>> splits = new ArrayList<Spliterator<Integer>> ();
-    splits.add (a.spliterator ());
-
-    ListIterator<Spliterator<Integer>> splits_it = splits.listIterator ();
-
-    while (splits_it.hasNext ()) {
-      Spliterator<Integer> item = splits_it.next (), n = item.trySplit ();
-
-      while (n != null) {
-        splits_it.add (n);
-        splits_it.previous ();
-        n = item.trySplit ();
-      }
-    }
-
-    splits_it = splits.listIterator ();
-
-    while (splits_it.hasNext ()) {
-      System.out.println (splits_it.next ().estimateSize ());
-    }
-    assertEquals (10, splits.size ());
-
-    splits_it = splits.listIterator ();
-    count = 0;
-
-    while (splits_it.hasNext ()) {
-      Spliterator<Integer> item = splits_it.next ();
-
-      assertTrue (item.tryAdvance (act));
-      assertFalse (item.tryAdvance (act));
-      ++count;
-    }
-
-    assertEquals (10, count);
-    try {
-      assertEquals (45, act.getClass().getMethod("sum").invoke (act));
-      act.getClass().getMethod("reset").invoke (act);
-    } catch (Exception e) { fail ("should never happen"); }
-
-  }
 }

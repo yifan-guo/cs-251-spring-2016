@@ -95,15 +95,6 @@ public class ListArray<T extends Comparable<T>>
     }
 
     /**
-     * @return The current maximum capacity of the array withough
-     */
-    public int capacity() {
-        // TODO - you fill in here (replace 0 with proper return
-        // value).
-        return 0;
-    }
-
-    /**
      * Resizes the array to the requested size.
      *
      * Changes the capacity of this array to hold the requested number of elements.
@@ -119,13 +110,22 @@ public class ListArray<T extends Comparable<T>>
     public void resize(int size) {
         // TODO - you fill in here.
         if (size < mySize) {
-            seek(size - 1).prune();
+            if (size == 0) {        //more efficient way???
+                myHead.prune();
+            }
+            else {
+                seek(size - 1).prune();
+            }
         }
         else if (size > mySize) {
-            Node prev = seek(mySize-1); //get the last Node in the list
+            //get last Node in the list, more efficient way???
+            Node tmp = myHead;
+            for (Iterator<Node> it = new NodeIterator(); it.hasNext(); ) {
+                tmp = it.next();
+            }
             for (int i = mySize; i < size; i++) {
-                new Node(myValue, prev);
-                prev = prev.next;
+                new Node(myValue, tmp);
+                tmp = tmp.next;
             }
         }
         mySize = size;
@@ -167,9 +167,14 @@ public class ListArray<T extends Comparable<T>>
     public T remove(int index) {
         // TODO - you fill in here (replace null with proper return
         // value).
-        Iterator<Node> it = new NodeIterator();
-        for (int i = 0; i < index; it.next(), i++) {}
+        rangeCheck(index);
+        Iterator<T> it = iterator();    //list iterator
+        T tmp = it.next();  //in case index == 0, must call next() before remove()
+        for (int i = 0; i < index; i++) {
+            tmp = it.next();
+        }
         it.remove();
+        return tmp;
     }
 
     /**
@@ -177,11 +182,13 @@ public class ListArray<T extends Comparable<T>>
     * current bounds of the array.
     */
     private Node seek(int index) {
+        // TODO - you fill in here
         rangeCheck(index);
         Iterator<Node> it = new NodeIterator();
         for (int i = 0; i < index; i++, it.next()) {}
         return it.next();
     }
+
     /**
      * Compares this array with another array.
      * <p>
@@ -269,9 +276,8 @@ public class ListArray<T extends Comparable<T>>
         void prune() {
             // TODO - you fill in here.
             Node tmp = this;
-            Node next = null;
             while (tmp != null) {
-                next = tmp.next;
+                Node next = tmp.next;
                 tmp.next = null;
                 tmp = next;
             }
@@ -287,7 +293,7 @@ public class ListArray<T extends Comparable<T>>
     private class NodeIterator implements Iterator<Node> {
         // TODO: Fill in any fields you require.
         private int currentIndex, lastRemovedIndex = 0;
-        private Node cur = myHead.next;
+        private Node cur = myHead;
         private Node prev;
 
         /**
@@ -314,9 +320,9 @@ public class ListArray<T extends Comparable<T>>
                 prev = cur;
                 cur = cur.next;
                 currentIndex++;
-                return prev;
+                return cur;
             }
-            throw new NoSuchElementException();
+            throw new ArrayIndexOutOfBoundsException();     //test fails if NoSuchElementException
         }
 
         /**
@@ -341,8 +347,10 @@ public class ListArray<T extends Comparable<T>>
             if (currentIndex == lastRemovedIndex) {
                 throw new IllegalStateException();
             }
-            prev.next = null;
             cur = cur.next;
+            prev.next = cur;
+            cur = prev;
+            currentIndex--;
             lastRemovedIndex = currentIndex;
             mySize--;
         }
