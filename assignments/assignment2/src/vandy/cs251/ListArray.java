@@ -79,10 +79,14 @@ public class ListArray<T extends Comparable<T>>
         mySize = s.mySize;
         myValue = s.myValue;
         Node prev = myHead;
-        for (Iterator<T> it = s.iterator(); it.hasNext(); ) {
-            new Node(it.next(), prev);
+        for (Node x : s.myHead) {
+            new Node(x.item, prev);
             prev = prev.next;
         }
+        /*for (Iterator<T> it = s.iterator(); it.hasNext(); ) {
+            new Node(it.next(), prev);
+            prev = prev.next;
+        }*/
     }
 
     /**
@@ -322,7 +326,7 @@ public class ListArray<T extends Comparable<T>>
                 currentIndex++;
                 return cur;
             }
-            throw new ArrayIndexOutOfBoundsException();     //test fails if NoSuchElementException
+            throw new NoSuchElementException();     //test fails if NoSuchElementException
         }
 
         /**
