@@ -60,6 +60,7 @@ public class ListArray<T extends Comparable<T>>
      * @throws NegativeArraySizeException if the specified size is
      *         negative.
      */
+    // @@ Good job creating a helper method.
     private void helper(int size, T value) {
         if (size < 0) {
             throw new NegativeArraySizeException();
@@ -209,6 +210,7 @@ public class ListArray<T extends Comparable<T>>
         Iterator<T> it = iterator();
         Iterator<T> other = s.iterator();
         for (int i = 0; i < Math.min(mySize, s.mySize); i++) {
+            // @@ Well done!
             int value = it.next().compareTo(other.next());
             if (value != 0) {
                 return value;
