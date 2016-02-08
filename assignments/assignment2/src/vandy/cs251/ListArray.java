@@ -34,6 +34,7 @@ public class ListArray<T extends Comparable<T>>
     @SuppressWarnings("unchecked")
     public ListArray(int size) throws NegativeArraySizeException {
         // TODO - you fill in here.
+	// @@ Helper should probably ahve a better name:
         helper(size, myValue);
     }
 
