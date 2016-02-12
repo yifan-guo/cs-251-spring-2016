@@ -26,11 +26,11 @@
       <file leaf-file-name="ListArray.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vandy/cs251/ListArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.73624825">
-              <caret line="371" column="9" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+            <state vertical-scroll-proportion="-2.493653">
+              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#924#954#0" expanded="true" />
+                <element signature="e#903#933#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,17 +48,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CharList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../assignment1/ugrad/src/vandy/cs251/CharList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -72,6 +69,7 @@
         <option value="$PROJECT_DIR$/test/vandy/cs251/ArrayCharacterTest.java" />
         <option value="$PROJECT_DIR$/test/vandy/cs251/ListArrayCharacterTest.java" />
         <option value="$PROJECT_DIR$/src/vandy/cs251/ListArray.java" />
+        <option value="$PROJECT_DIR$/src/vandy/cs251/hello.java" />
       </list>
     </option>
   </component>
@@ -477,9 +475,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ListArrayCharacterTest - 2016.02.12 at 11h 20m 51s.xml">
-      <configuration name="ListArrayCharacterTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ListArrayCharacterTest - 2016.02.12 at 11h 21m 53s.xml">
       <configuration name="ListArrayCharacterTest" configurationId="JUnit" />
     </history-entry>
@@ -505,6 +500,9 @@
       <configuration name="ListArrayCharacterTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ListArrayCharacterTest - 2016.02.12 at 12h 24m 19s.xml">
+      <configuration name="ListArrayCharacterTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ListArrayCharacterTest - 2016.02.12 at 12h 47m 51s.xml">
       <configuration name="ListArrayCharacterTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -593,7 +591,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -622,7 +620,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -651,7 +649,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -670,7 +668,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -691,7 +689,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -720,7 +718,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -749,7 +747,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -778,7 +776,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -807,7 +805,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -821,7 +819,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../assignment1/ugrad/src/vandy/cs251/CharList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.02303523">
           <caret line="130" column="32" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
           <folding />
         </state>
@@ -839,11 +837,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vandy/cs251/ListArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73624825">
-          <caret line="371" column="9" selection-start-line="371" selection-start-column="9" selection-end-line="371" selection-end-column="9" />
+        <state vertical-scroll-proportion="-2.493653">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#924#954#0" expanded="true" />
+            <element signature="e#903#933#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
  * Provides a generic dynamically-(re)sized array abstraction.
  */
 public class ListArray<T extends Comparable<T>>
-             implements Comparable<ListArray<T>>,
-                        Iterable<T> {
+        implements Comparable<ListArray<T>>,
+        Iterable<T> {
     /**
      * The underlying list of type T.
      */
@@ -193,9 +193,9 @@ public class ListArray<T extends Comparable<T>>
     }
 
     /**
-    * @throws ArrayIndexOutOfBoundsException If the requested index is outside the
-    * current bounds of the array.
-    */
+     * @throws ArrayIndexOutOfBoundsException If the requested index is outside the
+     * current bounds of the array.
+     */
     private Node seek(int index) {
         // TODO - you fill in here
         rangeCheck(index);
@@ -229,8 +229,8 @@ public class ListArray<T extends Comparable<T>>
         return mySize - s.mySize;
     }
 
-    /** 
-     * Throws an exception if the index is out of bound. 
+    /**
+     * Throws an exception if the index is out of bound.
      */
     private void rangeCheck(int index) {
         // TODO - you fill in here.
@@ -377,7 +377,7 @@ public class ListArray<T extends Comparable<T>>
      */
     private class ListIterator implements Iterator<T> {
         // TODO: Fill in any fields you require.
-            private NodeIterator it = new NodeIterator();
+        private NodeIterator it = new NodeIterator();
 
         /**
          * Returns the next element in the iteration.
