@@ -34,7 +34,10 @@ public class ListArray<T extends Comparable<T>>
     @SuppressWarnings("unchecked")
     public ListArray(int size) throws NegativeArraySizeException {
         // TODO - you fill in here.
-        helper(size, myValue);
+        // @@ Good job creating a helper method.
+        // @@ Helper should probably have a better name:
+        // Student Response: changed helper function name to helperConstructor()
+        helperConstructor(size, myValue);
     }
 
     /**
@@ -49,7 +52,7 @@ public class ListArray<T extends Comparable<T>>
                      T defaultValue) throws NegativeArraySizeException {
         // TODO - you fill in here.
         myValue = defaultValue;
-        helper(size, myValue);
+        helperConstructor(size, myValue);
     }
 
     /**
@@ -60,13 +63,20 @@ public class ListArray<T extends Comparable<T>>
      * @throws NegativeArraySizeException if the specified size is
      *         negative.
      */
-    private void helper(int size, T value) {
-        if (size < 0) {
-            throw new NegativeArraySizeException();
-        }
+    private void helperConstructor(int size, T value) {
+        sizeCheck(size);
         mySize = size;
         for (int i = 0; i < size; i++) {
             new Node(value, myHead);
+        }
+    }
+
+    /**
+     * Throws an exception if the size is negative.
+     */
+    private void sizeCheck(int size) {
+        if (size < 0) {
+            throw new NegativeArraySizeException();
         }
     }
 
@@ -113,20 +123,21 @@ public class ListArray<T extends Comparable<T>>
      */
     public void resize(int size) {
         // TODO - you fill in here.
-        if (size < mySize) {
-            if (size == 0) {        //more efficient way???
+        sizeCheck(size);
+        if (size < mySize) {            //shrink
+            if (size == 0) {
                 myHead.prune();
             }
             else {
                 seek(size - 1).prune();
             }
         }
-        else if (size > mySize) {
-            //get last Node in the list, more efficient way???
+        else if (size > mySize) {       //grow
             Node tmp = myHead;
-            for (Iterator<Node> it = new NodeIterator(); it.hasNext(); ) {
-                tmp = it.next();
+            if (mySize != 0) {
+                tmp = seek(mySize - 1);
             }
+
             for (int i = mySize; i < size; i++) {
                 new Node(myValue, tmp);
                 tmp = tmp.next;
@@ -209,6 +220,7 @@ public class ListArray<T extends Comparable<T>>
         Iterator<T> it = iterator();
         Iterator<T> other = s.iterator();
         for (int i = 0; i < Math.min(mySize, s.mySize); i++) {
+            // @@ Well done!
             int value = it.next().compareTo(other.next());
             if (value != 0) {
                 return value;
@@ -326,7 +338,7 @@ public class ListArray<T extends Comparable<T>>
                 currentIndex++;
                 return cur;
             }
-            throw new NoSuchElementException();     //test fails if NoSuchElementException
+            throw new NoSuchElementException();
         }
 
         /**
