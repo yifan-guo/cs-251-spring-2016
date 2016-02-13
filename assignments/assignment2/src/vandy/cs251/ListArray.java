@@ -63,7 +63,7 @@ public class ListArray<T extends Comparable<T>>
      * @throws NegativeArraySizeException if the specified size is
      *         negative.
      */
-    private void helperConstructor(int size, T value) {
+    private void helperConstructor(int size, T value) throws NegativeArraySizeException {
         sizeCheck(size);
         mySize = size;
         for (int i = 0; i < size; i++) {
@@ -184,7 +184,7 @@ public class ListArray<T extends Comparable<T>>
         // value).
         rangeCheck(index);
         Iterator<T> it = iterator();    //list iterator
-        T tmp = it.next();  //in case index == 0, must call next() before remove()
+        T tmp = it.next();              //in case index == 0, must call next() before remove()
         for (int i = 0; i < index; i++) {
             tmp = it.next();
         }
@@ -199,7 +199,7 @@ public class ListArray<T extends Comparable<T>>
     private Node seek(int index) {
         // TODO - you fill in here
         rangeCheck(index);
-        Iterator<Node> it = new NodeIterator();
+        Iterator<Node> it = myHead.iterator();
         for (int i = 0; i < index; i++, it.next()) {}
         return it.next();
     }
