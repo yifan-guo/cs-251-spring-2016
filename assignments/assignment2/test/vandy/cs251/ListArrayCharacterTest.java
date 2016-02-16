@@ -279,6 +279,13 @@ public class ListArrayCharacterTest {
         assertTrue (it.next () == 'b');
         assertTrue (it.hasNext () == false);
 
+        a.resize(1);
+
+        it = a.iterator ();
+        assertTrue (it.hasNext ());
+        assertTrue(it.next() == 'a');
+        assertFalse(it.hasNext());
+
         exception.expect(NoSuchElementException.class);
         it.next ();
     }

@@ -249,6 +249,8 @@ public class ListArray<T extends Comparable<T>>
 
     private class Node implements Iterable<Node> {
         // TODO: Fill in any fields you require.
+
+        // SP: -1, prefix with 'm'
         /**
          * Value stored in the Node.
          */
@@ -308,7 +310,7 @@ public class ListArray<T extends Comparable<T>>
 
     private class NodeIterator implements Iterator<Node> {
         // TODO: Fill in any fields you require.
-        private int currentIndex, lastRemovedIndex = 0;
+        private int currentIndex, lastRemovedIndex = 0; // SP: -3, unnecessary variables
         private Node cur = myHead;
         private Node prev;
 
@@ -322,7 +324,7 @@ public class ListArray<T extends Comparable<T>>
         @Override
         public boolean hasNext() {
             return currentIndex < mySize;
-        }
+        } // SP: -3, check if cur.nxt == null
 
         /**
          * Returns the next element in the iteration.
