@@ -324,7 +324,7 @@ public class ListArray<T extends Comparable<T>>
         @Override
         public boolean hasNext() {
             return currentIndex < mySize;
-        } // SP: -3, check if cur.nxt == null
+        } // SP: check if cur.nxt == null
 
         /**
          * Returns the next element in the iteration.
