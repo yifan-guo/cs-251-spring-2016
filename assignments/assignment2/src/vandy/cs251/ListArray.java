@@ -111,14 +111,7 @@ public class ListArray<T extends Comparable<T>>
     /**
      * Resizes the array to the requested size.
      *
-     * Changes the capacity of this array to hold the requested number of elements.
-     * Note the following optimizations/implementation details:
-     * <ul>
-     *   <li> If the requests size is smaller than the current maximum capacity, new memory
-     *   is not allocated.
-     *   <li> If the array was constructed with a default value, it is used to populate
-     *   uninitialized fields in the array.
-     * </ul>
+     * Changes the size of this ListArray to hold the requested number of elements.
      * @param size Nonnegative requested new size.
      */
     public void resize(int size) {
@@ -168,6 +161,11 @@ public class ListArray<T extends Comparable<T>>
     public void set(int index, T value) {
         // TODO - you fill in here.
         seek(index).item = value;
+    }
+
+    private Node seek(int index) {
+        // TODO - you fill in here.
+        return null;
     }
 
     /**
