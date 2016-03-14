@@ -62,13 +62,16 @@ public class MainActivity
         // Always call super class for necessary
         // initialization/implementation.
         // TODO -- you fill in here.
+        super.onCreate(savedInstanceState);
 
         // Set the default layout.
         // TODO -- you fill in here.
-        
+        setContentView(R.layout.activity_main);
+
         // Cache the EditText that holds the urls entered by the
         // user (if any).
         // TODO -- you fill in here.
+        mUrlEditText = (EditText)findViewById(R.id.url);
     }
 
     /**
@@ -87,6 +90,8 @@ public class MainActivity
             // Intent and start an Activity that downloads an image
             // from the URL given by the user.
             // TODO - you fill in here.
+            startDownloadImageActivity(getUrl());
+            //Intent intent = new Intent(this, DownloadImageActivity.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -105,22 +110,24 @@ public class MainActivity
         // Check if the started Activity completed successfully.
         // TODO -- you fill in here, replacing true with the right
         // code.
-        if (true) {
+        if (resultCode == RESULT_OK) {
             // Check if the request code is what we're expecting.
             // TODO -- you fill in here, replacing true with the
             // right code.
-            if (false) {
+            if (requestCode == DOWNLOAD_IMAGE_REQUEST) {
                 // Call the makeGalleryIntent() factory method to
                 // create an Intent that will launch the "Gallery" app
                 // by passing in the path to the downloaded image
                 // file.
                 // TODO -- you fill in here.
+                Intent intent = makeGalleryIntent(data.getData().toString());
 
                 // Allow user to click the download button again.
                 mProcessButtonClick = true;
 
                 // Start the Gallery Activity.
                 // TODO -- you fill in here.
+                startActivity(intent);
             }
         }
         // Check if the started Activity did not complete successfully
@@ -128,7 +135,7 @@ public class MainActivity
         // download contents at the given URL.
         // TODO -- you fill in here, replacing true with the right
         // code.
-        else if (true) {
+        else if (resultCode != RESULT_OK) {
            showToast(this, "failed to download " + getUrl().toString());
         }
 
@@ -156,7 +163,11 @@ public class MainActivity
         // the image.
         // TODO -- you fill in here, replacing "null" with the proper
         // code.
-        return null;
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse(pathToImageFile), "image/*");
+        return intent;
+        //return new Intent(Intent.ACTION_VIEW, Uri.parse(pathToImageFile), "image/*");
     }
 
     /**
@@ -185,14 +196,14 @@ public class MainActivity
             // Make sure that there's not already a download in progress.
             // TODO -- you fill in here, replacing "true" with the
             // proper code.
-            if (true)
+            if (!mProcessButtonClick)
                 showToast(this, 
                           "Already downloading image " 
                           + url);
             // Do a sanity check to ensure the URL is valid.
             // TODO -- you fill in here, replacing "true" with the
             // proper code.
-            else if (true) {
+            else if (!URLUtil.isValidUrl(url.toString())) {
                 showToast(this,
                         "Invalid URL "
                                 + url.toString());
@@ -209,6 +220,7 @@ public class MainActivity
                 // Uri for the downloaded image file via the
                 // onActivityResult() hook method.
                 // TODO -- you fill in here.
+                startActivityForResult(intent, DOWNLOAD_IMAGE_REQUEST);
             }
         }
     }
