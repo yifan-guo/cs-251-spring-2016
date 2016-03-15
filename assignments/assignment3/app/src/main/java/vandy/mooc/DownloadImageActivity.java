@@ -198,12 +198,15 @@ public class DownloadImageActivity
         // for more discussion about this topic.
         public void run() {
             Uri path = DownloadUtils.downloadImage(DownloadImageActivity.this, getIntent().getData());
+            Log.d(TAG, "Image is downloaded and path is returned");
             setActivityResult(path);
+            Log.d(TAG, "activity result is set to the path of the downloaded image");
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     //done on UI thread
                     DownloadImageActivity.this.finish();
+                    Log.d(TAG, "finish is called on DownloadImageActivity");
                 }
             });
         }

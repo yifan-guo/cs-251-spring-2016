@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.URLUtil;
@@ -214,7 +215,6 @@ public class MainActivity
 
                 // Make an intent to download the image.
                 Intent intent = makeDownloadImageIntent(url);
-
                 // Start the Activity associated with the Intent,
                 // which will download the image and then return the
                 // Uri for the downloaded image file via the
