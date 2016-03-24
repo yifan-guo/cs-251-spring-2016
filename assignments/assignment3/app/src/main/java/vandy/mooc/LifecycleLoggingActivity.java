@@ -58,6 +58,8 @@ public abstract class LifecycleLoggingActivity
         // initialization/implementation.
         // @@ TODO -- you fill in here.
         super.onStart();
+        // @@ Something(s) important are missing here!
+
     }
 
     /**
