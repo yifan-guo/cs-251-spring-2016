@@ -198,7 +198,7 @@ public class DownloadImageActivity
         // for more discussion about this topic.
         public void run() {
             // @@ Please make this a "final" variable.
-            Uri path = DownloadUtils.downloadImage(DownloadImageActivity.this, (Uri) mRetainedFragmentManager.get(URL));
+            final Uri path = DownloadUtils.downloadImage(DownloadImageActivity.this, (Uri) mRetainedFragmentManager.get(URL));
             Log.d(TAG, "Image is downloaded and path is returned");
             setActivityResult(path);
             Log.d(TAG, "activity result is set to the path of the downloaded image");

@@ -153,7 +153,7 @@ public class MainActivity
         // download contents at the given URL.
         // TODO -- you fill in here, replacing true with the right
         // code.
-        else if (resultCode != RESULT_OK) {
+        else if (resultCode == RESULT_CANCELED) {
            showToast(this, "failed to download " + getUrl().toString());
         }
 

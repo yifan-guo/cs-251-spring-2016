@@ -59,7 +59,7 @@ public abstract class LifecycleLoggingActivity
         // @@ TODO -- you fill in here.
         super.onStart();
         // @@ Something(s) important are missing here!
-
+        Log.d(TAG, "onStart: activity started");
     }
 
     /**
