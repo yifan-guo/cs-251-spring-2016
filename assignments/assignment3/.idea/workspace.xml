@@ -36,23 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.586207">
-              <caret line="178" column="36" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadImageActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DownloadImageActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadImageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24444444">
-              <caret line="200" column="18" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="148" column="47" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,7 +61,7 @@
       <file leaf-file-name="LifecycleLoggingActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.137931">
+            <state vertical-scroll-proportion="0.0">
               <caret line="55" column="26" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1513,9 +1511,9 @@
         <option value="$PROJECT_DIR$/app/app.iml" />
         <option value="$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadUtils.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadImageActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/vandy/mooc/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadImageActivity.java" />
       </list>
     </option>
   </component>
@@ -1559,6 +1557,8 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1664,8 +1664,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1907,9 +1905,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="47" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="26" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1927,9 +1951,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1957,9 +1979,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="249" column="70" selection-start-line="249" selection-start-column="70" selection-end-line="249" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1987,9 +2007,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="183" column="36" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2017,9 +2035,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2047,9 +2063,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2098,9 +2112,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2243,16 +2255,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.137931">
-          <caret line="55" column="26" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -2263,23 +2265,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadImageActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.586207">
-          <caret line="178" column="36" selection-start-line="178" selection-start-column="19" selection-end-line="178" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="47" selection-start-line="148" selection-start-column="47" selection-end-line="148" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/DownloadImageActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/LifecycleLoggingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24444444">
-          <caret line="200" column="18" selection-start-line="200" selection-start-column="18" selection-end-line="200" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="26" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/vandy/mooc/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
