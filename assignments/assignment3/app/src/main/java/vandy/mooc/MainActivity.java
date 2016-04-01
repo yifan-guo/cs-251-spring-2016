@@ -93,7 +93,7 @@ public class MainActivity
 
         }
     }
-    
+
     /**
      * Called by the Android Activity framework when the user clicks
      * the "Download Image" button.
