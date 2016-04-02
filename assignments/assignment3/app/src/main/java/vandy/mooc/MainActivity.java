@@ -139,7 +139,7 @@ public class MainActivity
                 // by passing in the path to the downloaded image
                 // file.
                 // TODO -- you fill in here.
-                Intent intent = makeGalleryIntent(data.getData().toString());
+                final Intent intent = makeGalleryIntent(data.getData().toString());
                 // Allow user to click the download button again.
                 mProcessButtonClick = true;
 
@@ -231,7 +231,7 @@ public class MainActivity
                 mProcessButtonClick = false;
 
                 // Make an intent to download the image.
-                Intent intent = makeDownloadImageIntent(url);
+                final Intent intent = makeDownloadImageIntent(url);
 
                 // Start the Activity associated with the Intent,
                 // which will download the image and then return the
