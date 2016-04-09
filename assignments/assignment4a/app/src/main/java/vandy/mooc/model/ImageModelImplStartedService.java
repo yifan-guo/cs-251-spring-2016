@@ -16,7 +16,7 @@ public class ImageModelImplStartedService
      * Start a download.  When the download finishes its results are
      * passed up to the Presentation layer via the
      * onDownloadComplete() method defined in RequiredPresenterOps.
-     * This method plays the fole of the "Primitive Operation"
+     * This method plays the role of the "Primitive Operation"
      * (a.k.a., "Abstract Hook Method") in the Template Method
      * pattern.
      *
