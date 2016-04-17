@@ -1,0 +1,8 @@
+total 98/100
+
+execution 40/40
+structure 30/30
+insightful programming 10/10
+consistent style 8/10
+  -2 Download line 203 -- code extends beyond 100 character mark
+appropriate commenting style 10/10
