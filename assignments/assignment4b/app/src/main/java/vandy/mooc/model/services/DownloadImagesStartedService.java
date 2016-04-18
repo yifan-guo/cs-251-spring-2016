@@ -1,9 +1,6 @@
 package vandy.mooc.model.services;
 
-import vandy.mooc.model.ImageModelImplStartedService;
-import vandy.mooc.model.datamodel.ReplyMessage;
 import vandy.mooc.model.datamodel.RequestMessage;
-import vandy.mooc.utils.NetUtils;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +11,8 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 
-import java.net.URI;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.ReplyMessage;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage;
 
 /**
  * An IntentService that downloads an image requested via data in an
@@ -79,24 +77,24 @@ public class DownloadImagesStartedService
 
         // Extract the URL for the image to download.
         // TODO -- you fill in here.
-        final Uri imageURL = requestMessage.getImageURL();
+        final Uri mImageURL = requestMessage.getImageURL();
 
         // Download the requested image.
         // TODO -- you fill in here.
-        final Uri pathToImageFile = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
+        final Uri mDirectoryPathname = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
 
         // Extract the request code.
         // TODO -- you fill in here.
-        final int requestCode = requestMessage.getRequestCode();
+        final int mRequestCode = requestMessage.getRequestCode();
 
         // Extract the Messenger stored in the RequestMessage.
         // TODO -- you fill in here.
-        final Messenger messenger = requestMessage.getMessenger();
+        final Messenger mReplyMessenger = requestMessage.getMessenger();
 
         // Send the path to the image file back to the
         // MainActivity via the messenger.
         // TODO -- you fill in here.
-        sendPath(messenger, pathToImageFile, imageURL, requestCode);
+        sendPath(mReplyMessenger, mDirectoryPathname, mImageURL, mRequestCode);
     }
 
     /**
@@ -111,7 +109,6 @@ public class DownloadImagesStartedService
         // Message.
         // TODO -- you fill in here.
         ReplyMessage replyMessage = ReplyMessage.makeReplyMessage(pathToImageFile, url, requestCode);
-        
         try {
             // Send the path to the image file back to the
             // ImageModelImpl's Handler via the Messenger.
