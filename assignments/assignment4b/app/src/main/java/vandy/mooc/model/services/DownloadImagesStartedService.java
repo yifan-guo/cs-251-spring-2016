@@ -1,5 +1,6 @@
 package vandy.mooc.model.services;
 
+import vandy.mooc.model.datamodel.ReplyMessage;
 import vandy.mooc.model.datamodel.RequestMessage;
 import android.app.IntentService;
 import android.content.Context;
@@ -10,9 +11,9 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
+import vandy.mooc.model.datamodel.RequestMessage;
+import vandy.mooc.utils.NetUtils;
 
-import com.sun.corba.se.impl.protocol.giopmsgheaders.ReplyMessage;
-import com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage;
 
 /**
  * An IntentService that downloads an image requested via data in an
@@ -77,24 +78,24 @@ public class DownloadImagesStartedService
 
         // Extract the URL for the image to download.
         // TODO -- you fill in here.
-        final Uri mImageURL = requestMessage.getImageURL();
+        final Uri imageURL = requestMessage.getImageURL();
 
         // Download the requested image.
         // TODO -- you fill in here.
-        final Uri mDirectoryPathname = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
+        final Uri directoryPathname = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
 
         // Extract the request code.
         // TODO -- you fill in here.
-        final int mRequestCode = requestMessage.getRequestCode();
+        final int requestCode = requestMessage.getRequestCode();
 
         // Extract the Messenger stored in the RequestMessage.
         // TODO -- you fill in here.
-        final Messenger mReplyMessenger = requestMessage.getMessenger();
+        final Messenger replyMessenger = requestMessage.getMessenger();
 
         // Send the path to the image file back to the
         // MainActivity via the messenger.
         // TODO -- you fill in here.
-        sendPath(mReplyMessenger, mDirectoryPathname, mImageURL, mRequestCode);
+        sendPath(replyMessenger, directoryPathname, imageURL, requestCode);
     }
 
     /**

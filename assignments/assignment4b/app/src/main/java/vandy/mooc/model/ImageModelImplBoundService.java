@@ -97,14 +97,13 @@ public class ImageModelImplBoundService
             // that can download an image from the URL given by the
             // user.
             // TODO - you fill in here.
-            Intent intent = DownloadImagesBoundService.makeIntent(this);
+            Intent intent = DownloadImagesBoundService.makeIntent(mImagePresenter.get().getApplicationContext());
 
             Log.d(TAG,
                   "calling Context.bindService()");
-
             // Bind to the Service associated with the Intent.
             // TODO -- you fill in here.
-            bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+            mImagePresenter.get().getApplicationContext().bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
         }
     }
 
@@ -119,7 +118,7 @@ public class ImageModelImplBoundService
         if (mRequestMessengerRef != null) {
             // Unbind from the Service.
             // TODO -- you fill in here.
-            unbindService(mServiceConnection);
+            mImagePresenter.get().getApplicationContext().unbindService(mServiceConnection);
 
             Log.d(TAG,
                   "calling Context.unbindService()");
@@ -169,7 +168,7 @@ public class ImageModelImplBoundService
                 // Send the request Message to the
                 // DownloadImagesBoundService.
                 // TODO -- you fill in here.
-                mRequestMessengerRef.send(requestMessage);
+                mRequestMessengerRef.send(requestMessage.getMessage());
             } catch (Exception e) {
                 e.printStackTrace();
             }
