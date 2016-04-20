@@ -131,7 +131,7 @@ public class DownloadImagesBoundService
 	    // Execute the downloadImageAndReply Runnable to download
 	    // the image and reply.
 	    // TODO -- you fill in here.
-		new Thread(downloadImageAndReply).start();
+		mExecutorService.execute(downloadImageAndReply);
 	}
 
 	/**
