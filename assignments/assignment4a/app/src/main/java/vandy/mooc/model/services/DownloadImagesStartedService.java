@@ -57,7 +57,9 @@ public class DownloadImagesStartedService
         // containing the various parameters passed into this method
         // and (2) storing this RequestMessage as a Message "extra" in
         // the Intent.
+	// @@ These should be final:
         RequestMessage requestMessage = RequestMessage.makeRequestMessage(requestCode, url, directoryPathname, new Messenger(downloadHandler));
+	// @@ Please just say 'return …'
         Intent intent = new Intent(context, DownloadImagesStartedService.class);
         intent.putExtra(REQUEST_MESSAGE, requestMessage.getMessage());
         return intent;
