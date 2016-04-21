@@ -35,7 +35,7 @@ public class ReplyMessage extends RequestReplyMessageBase {
                                                 int requestCode) {
         // Create a ReplyMessage that holds a reference to a Message
         // created via the Message.obtain() factory method.
-        ReplyMessage replyMessage =
+        final ReplyMessage replyMessage =
             new ReplyMessage(Message.obtain());
 
         // Create a new Bundle and set it as the "data" for the
