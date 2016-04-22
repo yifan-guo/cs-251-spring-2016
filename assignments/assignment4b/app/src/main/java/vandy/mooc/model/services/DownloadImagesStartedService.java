@@ -80,7 +80,7 @@ public class DownloadImagesStartedService
 
         // Download the requested image.
         // TODO -- you fill in here.
-        final Uri directoryPathname = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
+        final Uri imagePathname = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
 
         // Extract the request code.
         // TODO -- you fill in here.
@@ -93,7 +93,7 @@ public class DownloadImagesStartedService
         // Send the path to the image file back to the
         // MainActivity via the messenger.
         // TODO -- you fill in here.
-        sendPath(replyMessenger, directoryPathname, imageURL, requestCode);
+        sendPath(replyMessenger, imagePathname, imageURL, requestCode);
     }
 
     /**

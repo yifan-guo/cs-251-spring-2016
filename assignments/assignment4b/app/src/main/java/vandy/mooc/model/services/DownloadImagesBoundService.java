@@ -45,47 +45,47 @@ public class DownloadImagesBoundService
      * This class handles messages sent from an Activity in a pool of
      * threads managed by the Java ExecutorService.
      */
-    private static class RequestHandler extends Handler {
-	/**
-	 * Debugging tag used by the Android logger.
-	 */
-	private final String TAG = getClass().getSimpleName();
+	private static class RequestHandler extends Handler {
+		/**
+		 * Debugging tag used by the Android logger.
+		 */
+		private final String TAG = getClass().getSimpleName();
 
-	/**
-	 * Store a WeakReference to the Service to enable garbage
-	 * collection.
-	 */
-	WeakReference<DownloadImagesBoundService> mService;
-    
-	/**
-	 * Reference to the ExecutorService that manages a pool of
-	 * threads.
-	 */
-	private ExecutorService mExecutorService;
+		/**
+		 * Store a WeakReference to the Service to enable garbage
+		 * collection.
+		 */
+		WeakReference<DownloadImagesBoundService> mService;
 
-	/**
-	 * Constructor initializes the WeakReference and ExecutorService.
-	 */
-	public RequestHandler(DownloadImagesBoundService service) {
-	    // Store a WeakReference to the DownloadImageService.
-	    mService = new WeakReference<>(service);
+		/**
+		 * Reference to the ExecutorService that manages a pool of
+		 * threads.
+		 */
+		private ExecutorService mExecutorService;
 
-	    // Create an ExecutorService that manages a pool of threads.
-	    mExecutorService = Executors.newCachedThreadPool();
-	}
+		/**
+		 * Constructor initializes the WeakReference and ExecutorService.
+		 */
+		public RequestHandler(DownloadImagesBoundService service) {
+			// Store a WeakReference to the DownloadImageService.
+			mService = new WeakReference<>(service);
 
-	/**
-	 * Hook method called back when a request message arrives from
-	 * an Activity.  The Message it receives contains the
-	 * Messenger used to reply to the Activity and the URL of the
-	 * image to download.  This image is stored in a local file on
-	 * the local device and image file's URI is sent back to the
-	 * MainActivity via the Messenger passed with the message.
-	 */
-	public void handleMessage(Message message) {
-	    // Convert the Message into a RequestMessage.
-	    final RequestMessage requestMessage =
-		RequestMessage.makeRequestMessage(message);
+			// Create an ExecutorService that manages a pool of threads.
+			mExecutorService = Executors.newCachedThreadPool();
+		}
+
+		/**
+		 * Hook method called back when a request message arrives from
+		 * an Activity.  The Message it receives contains the
+		 * Messenger used to reply to the Activity and the URL of the
+		 * image to download.  This image is stored in a local file on
+		 * the local device and image file's URI is sent back to the
+		 * MainActivity via the Messenger passed with the message.
+		 */
+		public void handleMessage(Message message) {
+			// Convert the Message into a RequestMessage.
+			final RequestMessage requestMessage =
+					RequestMessage.makeRequestMessage(message);
 
 	    // Get the reply Messenger.
 	    // TODO -- you fill in here.
@@ -118,13 +118,13 @@ public class DownloadImagesBoundService
 	
 			// Download and store the requested image.
 			// TODO -- you fill in here.
-				NetUtils.downloadImage(mService.get().getApplicationContext(), imageURL, directoryPathname);		//need to assign to directoryPathname???
+				final Uri imagePathname = NetUtils.downloadImage(mService.get().getApplicationContext(), imageURL, directoryPathname);
 
 			// Send the path to the image file, url, and
 			// requestCode back to the Activity via the
 			// replyMessenger.
 			// TODO -- you fill in here.
-				sendPath(replyMessenger, directoryPathname, imageURL, requestCode);
+				sendPath(replyMessenger, imagePathname, imageURL, requestCode);
 		    }
 		};
 
@@ -167,7 +167,7 @@ public class DownloadImagesBoundService
 	public void shutdown() {
 	    // Immediately shutdown the ExecutorService.
 	    // TODO -- you fill in here.
-		mExecutorService.shutdown();	//????????????????????????
+		mExecutorService.shutdown();
 	}
     }
 
@@ -179,7 +179,7 @@ public class DownloadImagesBoundService
         // Create an intent that will download the image from the web.
     	// TODO -- you fill in here, replacing null with the proper
     	// code.
-        return new Intent(context, DownloadImagesBoundService.class);		//??????????????????
+        return new Intent(context, DownloadImagesBoundService.class);
     }
 
     /**
@@ -190,7 +190,7 @@ public class DownloadImagesBoundService
         // Create a RequestHandler used to handle request Messages
         // sent from an Activity.
     	// TODO -- you fill in here.
-		mRequestHandler = new RequestHandler(this);		//?????????????????????????
+		mRequestHandler = new RequestHandler(this);
 
         // Create a Messenger that encapsulates the RequestHandler.
     	// TODO -- you fill in here.
