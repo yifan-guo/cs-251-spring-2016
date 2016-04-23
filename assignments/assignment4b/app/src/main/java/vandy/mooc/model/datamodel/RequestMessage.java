@@ -36,7 +36,7 @@ public class RequestMessage extends RequestReplyMessageBase {
                                                     Messenger replyMessenger) {
         // Create a RequestMessage that holds a reference to a Message
         // created via the Message.obtain() factory method.
-        final RequestMessage requestMessage =
+        RequestMessage requestMessage =
             new RequestMessage(Message.obtain());
 
         // Set replyMessenger into the Message's replyTo field.

@@ -97,13 +97,15 @@ public class ImageModelImplBoundService
             // that can download an image from the URL given by the
             // user.
             // TODO - you fill in here.
-            final Intent intent = DownloadImagesBoundService.makeIntent(mImagePresenter.get().getApplicationContext());
+            final Intent intent = DownloadImagesBoundService
+                    .makeIntent(mImagePresenter.get().getApplicationContext());
 
             Log.d(TAG,
                   "calling Context.bindService()");
             // Bind to the Service associated with the Intent.
             // TODO -- you fill in here.
-            mImagePresenter.get().getApplicationContext().bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
+            mImagePresenter.get().getApplicationContext()
+                    .bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
         }
     }
 

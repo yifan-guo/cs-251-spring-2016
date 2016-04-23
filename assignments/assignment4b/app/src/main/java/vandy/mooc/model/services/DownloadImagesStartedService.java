@@ -56,8 +56,13 @@ public class DownloadImagesStartedService
         // containing the various parameters passed into this method
         // and (2) storing this RequestMessage as a Message "extra" in
         // the Intent.
-        final RequestMessage requestMessage = RequestMessage.makeRequestMessage(requestCode, url, directoryPathname, new Messenger(downloadHandler));
-        return new Intent(context, DownloadImagesStartedService.class).putExtra(REQUEST_MESSAGE, requestMessage.getMessage());
+        final RequestMessage requestMessage =
+                RequestMessage.makeRequestMessage(requestCode, url,
+                        directoryPathname,
+                        new Messenger(downloadHandler));
+
+        return new Intent(context, DownloadImagesStartedService.class)
+                .putExtra(REQUEST_MESSAGE, requestMessage.getMessage());
     }
 
     /**
@@ -80,7 +85,8 @@ public class DownloadImagesStartedService
 
         // Download the requested image.
         // TODO -- you fill in here.
-        final Uri imagePathname = NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
+        final Uri imagePathname =
+                NetUtils.downloadImage(this, imageURL, requestMessage.getDirectoryPathname());
 
         // Extract the request code.
         // TODO -- you fill in here.
@@ -107,7 +113,8 @@ public class DownloadImagesStartedService
         // Call the makeReplyMessage() factory method to create
         // Message.
         // TODO -- you fill in here.
-        final ReplyMessage replyMessage = ReplyMessage.makeReplyMessage(pathToImageFile, url, requestCode);
+        final ReplyMessage replyMessage =
+                ReplyMessage.makeReplyMessage(pathToImageFile, url, requestCode);
         try {
             // Send the path to the image file back to the
             // ImageModelImpl's Handler via the Messenger.

@@ -118,7 +118,9 @@ public class DownloadImagesBoundService
 	
 			// Download and store the requested image.
 			// TODO -- you fill in here.
-				final Uri imagePathname = NetUtils.downloadImage(mService.get().getApplicationContext(), imageURL, directoryPathname);
+				final Uri imagePathname =
+						NetUtils.downloadImage(mService.get().getApplicationContext(),
+								imageURL, directoryPathname);
 
 			// Send the path to the image file, url, and
 			// requestCode back to the Activity via the
@@ -145,7 +147,8 @@ public class DownloadImagesBoundService
 	    // Call the makeReplyMessage() factory method to create
 	    // Message.
 	    // TODO -- you fill in here.
-		final ReplyMessage replyMessage = ReplyMessage.makeReplyMessage(pathToImageFile, url, requestCode);
+		final ReplyMessage replyMessage =
+				ReplyMessage.makeReplyMessage(pathToImageFile, url, requestCode);
 	    try {
 		Log.d(TAG,
 		      "sending "
